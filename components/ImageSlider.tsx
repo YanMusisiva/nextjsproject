@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 
+// List your image filenames here if uploading manually to /public/uploads
+const manualImages = [
+  "/uploads/image1.jpg",
+  "/uploads/image2.jpg",
+  "/uploads/image3.jpg",
+  // Add more image paths as needed
+];
+
 const ImageSlider = () => {
   const [images, setImages] = useState<string[]>([]);
 
   useEffect(() => {
-    const fetchImages = async () => {
-      const response = await fetch("/api/images");
-      const data = await response.json();
-      setImages(data);
-    };
-    fetchImages();
+    // Since images are manually uploaded, just set them directly
+    setImages(manualImages);
   }, []);
 
   return (
@@ -18,7 +22,7 @@ const ImageSlider = () => {
         <img
           key={index}
           src={src}
-          alt={`Image ${index}`}
+          alt={`Image ${index + 1}`}
           className="inline-block w-1/3"
         />
       ))}
