@@ -1,29 +1,10 @@
 "use client";
-import { useState } from "react";
+
 import React from "react";
+import NewsletterForm from "@/components/NewsletterForm";
+import ImageSlider from "@/components/ImageSlider";
 
 const Home: React.FC = () => {
-  const [email, setEmail] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const res = await fetch("/api/subscribe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email }),
-    });
-
-    if (res.ok) {
-      setMessage("Inscription réussie !");
-      setEmail("");
-    } else {
-      setMessage("Erreur lors de l'inscription.");
-    }
-  };
-
   return (
     <main className="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
       {/**Hero Section */}
@@ -102,33 +83,16 @@ const Home: React.FC = () => {
             />
           ))}
         </div>
+        <div className="mt-8 text-center">
+          <ImageSlider />
+        </div>
       </section>
       {/**Contact Section */}
       <section className="py-16 px-6 bg-gray-100 dark:bg-gray-800">
         <h2 className="text-3xl font-bold text-center mb-8">Contact Me</h2>
         <div className="max-w-2xl mx-auto bg-white dark:bg-gray-900 p-8 rounded-xl shadow">
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email"
-              className="w-full border border-gray-300 dark:border-gray-600 px-4 py-2 rounded-lg bg-white dark:bg-gray-800 text-black dark:text-white"
-              required
-            />
-            <textarea
-              placeholder="Your message"
-              className="w-full border border-gray-300 dark:border-gray-600 px-4 py-2 rounded-lg bg-white dark:bg-gray-800 text-black dark:text-white"
-              rows={4}
-              required
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition"
-            >
-              Send Message
-            </button>
-          </form>
+          <h1 className="text-3xl font-bold">Inscrivez vous a la newsletter</h1>
+          <NewsletterForm />
           <div className="mt-6 text-center text-sm text-gray-700 dark:text-gray-300">
             <p>
               Email:{" "}
