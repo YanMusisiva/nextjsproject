@@ -17,7 +17,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     try {
       await transporter.sendMail({
-        from: `"Newsletter AS ELEKTRIKA & TEK" <rockfordjohn317@gmail.com>`, // sender address
+        from: req.body.from, // sender address
         to: req.body.to,
         subject: req.body.subject,
         html: req.body.html,

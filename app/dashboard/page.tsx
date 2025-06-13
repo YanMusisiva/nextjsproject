@@ -68,6 +68,7 @@ const Dashboard = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        from: `"Newsletter AS ELEKTRIKA & TEK" <rockfordjohn317@gmail.com>`,
         to: email,
         subject: title,
         html,
