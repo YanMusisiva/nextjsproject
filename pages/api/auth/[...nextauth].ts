@@ -1,7 +1,6 @@
 import NextAuth from "next-auth";
 import dbConnect from "../../../lib/db";
 import User from "../../../models/User";
-import bcrypt from "bcryptjs";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 // Remplace par l'email autorisé
@@ -31,12 +30,9 @@ export default NextAuth({
           email: string;
           password: string;
         } | null;
+        // Comparaison du mot de passe en clair
         if (user && credentials?.password) {
-          const isValid = await bcrypt.compare(
-            credentials.password,
-            user.password
-          );
-          if (isValid) {
+          if (credentials.password === user.password) {
             return {
               id: user._id.toString(),
               name: user.name,
