@@ -31,7 +31,7 @@ export default function SignIn() {
       password,
     });
     if (result?.error) {
-      setError(result.error);
+      setError("mauvaise adresse email ou mot de passe");
     } else {
       router.push("/dashboard");
     }

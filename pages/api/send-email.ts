@@ -13,14 +13,14 @@ const transporter = nodemailer.createTransport({
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
-    const { to, subject, text } = req.body;
+    const { to, subject, html } = req.body;
 
     try {
       await transporter.sendMail({
-        from: `<rockfordjohn317@gmail.com>`, // sender address
-        to, // list of receivers
-        subject, // Subject line
-        text, // plain text body
+        from: `"Newsletter AS ELEKTRIKA & TEK" <rockfordjohn317@gmail.com>`, // sender address
+        to: req.body.to,
+        subject: req.body.subject,
+        html: req.body.html,
       });
 
       res.status(200).json({ message: "Email sent successfully" });
