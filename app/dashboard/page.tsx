@@ -9,7 +9,7 @@ interface EmailDoc {
   __v?: number;
 }
 
-const SITE_URL = "https://ton-site.com"; // Remplace par ton vrai domaine
+const SITE_URL = "https://aselektrika-tek.vercel.app/"; // Remplace par ton vrai domaine
 const DEFAULT_TITLE = "Bienvenue sur notre newsletter !";
 const DEFAULT_MESSAGE =
   "Merci de vous être abonné à notre newsletter. Nous sommes ravis de vous compter parmi nous !";
