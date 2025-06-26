@@ -2,7 +2,7 @@
 
 import React from "react";
 import NewsletterForm from "@/components/NewsletterForm";
-import ImageSlider from "@/components/ImageSlider";
+
 
 const Navbar = () => (
   <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur border-b border-gray-200 text-gray-900 z-50">
@@ -14,7 +14,7 @@ const Navbar = () => (
           <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </label>
-      <ul className="flex-col md:flex-row md:items-center absolute md:static bg-white/95 text-gray-900 left-0 w-full md:w-auto top-full md:top-auto hidden peer-checked:flex md:flex shadow md:shadow-none rounded-b md:rounded-none">
+      <ul className="flex-col md:flex-row md:items-center absolute md:static bg-white/95 text-gray-900 left-0 w-full md:w-auto top-full md:top-auto hidden peer-checked:flex md:flex shadow md:shadow-none rounded-b md:rounded-none gap-4 md:gap-4 md:bg-transparent md:shadow-none">
         {[
           { href: "#hero", label: "Accueil" },
           { href: "#services", label: "Services" },
@@ -41,7 +41,7 @@ const Hero = () => (
     id="hero"
     className="relative h-[70vh] flex items-center justify-center bg-cover bg-center"
     style={{
-      backgroundImage: "url('/lumion-style-hero.jpg')",
+      backgroundImage: "url('/eleKtrika-hero.jpg')",
     }}
   >
     <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-blue-900/40" />
@@ -52,12 +52,15 @@ const Hero = () => (
       <p className="text-xl md:text-2xl mb-8 font-light drop-shadow">
         Solutions électriques et technologiques pour les professionnels et particuliers exigeants.
       </p>
-      <a
+      <div  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10  rounded-full shadow-lg text-lg transition  w-full md:w-auto py-4">
+        <a
         href="#contact"
-        className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-4 rounded-full shadow-lg text-lg transition"
+       
       >
         Demander un devis
       </a>
+      </div>
+      
     </div>
   </section>
 );
@@ -154,9 +157,7 @@ const Portfolio = () => (
         )
       )}
     </div>
-    <div className="mt-14 text-center">
-      <ImageSlider />
-    </div>
+   
   </section>
 );
 
@@ -189,7 +190,7 @@ const Contact = () => (
   <section id="contact" className="py-24 px-6 bg-white">
     <h2 className="text-4xl font-bold text-center mb-10 tracking-tight">Contact</h2>
     <div className="max-w-2xl mx-auto bg-blue-50 p-10 rounded-2xl shadow-lg border border-blue-100">
-      <h1 className="text-2xl font-bold mb-6">Inscrivez-vous à la newsletter</h1>
+      <h1 className="text-2xl font-bold mb-6">Inscrivez-vous à la newsletter et OBTENEZ UN PREMIER DEPANNAGE GRATUIT</h1>
       <NewsletterForm />
       <div className="mt-8 text-center text-base text-gray-700 space-y-2">
         <p>
@@ -230,4 +231,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-// ...existing code...
