@@ -2,6 +2,7 @@
 
 import React from "react";
 import NewsletterForm from "@/components/NewsletterForm";
+import Image from "next/image";
 
 
 const Navbar = () => (
@@ -93,10 +94,13 @@ const Services = () => (
           className="group rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition bg-gray-50"
         >
           <div className="relative h-56">
-            <img
+            <Image
+           
+  fill
               src={service.icon}
               alt={service.title}
               className="object-cover w-full h-full group-hover:scale-105 transition"
+              priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent" />
           </div>
@@ -145,10 +149,14 @@ const Portfolio = () => (
       {["portfolio1.jpg", "portfolio2.jpg", "portfolio3.jpg", "portfolio4.jpg"].map(
         (src, i) => (
           <div key={i} className="relative group rounded-2xl overflow-hidden shadow-lg">
-            <img
+            <Image
+            width={400}
+            height={300}
+            
               src={`/${src}`}
               alt={`Projet ${i + 1}`}
               className="w-full h-56 object-cover group-hover:scale-105 transition"
+              
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
               <span className="text-white font-semibold">Projet {i + 1}</span>

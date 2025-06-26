@@ -12,19 +12,7 @@ const NewsletterForm = () => {
   const [success, setSuccess] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // Vérification DNS MX (optionnel, nécessite un service externe)
-  const checkEmailDomain = async (email: string) => {
-    const domain = email.split("@")[1];
-    // Utilisez un service public ou votre propre API pour vérifier le MX
-    // Ici, exemple fictif (remplacez par votre propre endpoint si besoin)
-    try {
-      const res = await fetch(`/api/check-mx?domain=${domain}`);
-      const data = await res.json();
-      return data.valid;
-    } catch {
-      return false;
-    }
-  };
+  
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,13 +26,7 @@ const NewsletterForm = () => {
 
     setLoading(true);
 
-    // Vérification DNS (optionnelle, retirez si pas d'API)
-    // const isDomainValid = await checkEmailDomain(email);
-    // if (!isDomainValid) {
-    //   setError("Le domaine de l'e-mail semble invalide.");
-    //   setLoading(false);
-    //   return;
-    // }
+    
 
     const response = await fetch("/api/subscribe", {
       method: "POST",
