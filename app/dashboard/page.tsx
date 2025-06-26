@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useSession, signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+
 
 interface EmailDoc {
   _id: string;
@@ -35,7 +35,7 @@ function getWelcomeHtml(email: string, title: string, message: string) {
 
 const Dashboard = () => {
   const { data: session, status } = useSession();
-  const router = useRouter();
+  
   const [emails, setEmails] = useState<EmailDoc[]>([]);
   const [newsletterTitle, setNewsletterTitle] = useState(DEFAULT_TITLE);
   const [newsletterMessage, setNewsletterMessage] = useState(DEFAULT_MESSAGE);

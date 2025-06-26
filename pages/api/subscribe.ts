@@ -52,9 +52,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       const newEmail = new Email({ email });
       try {
         await newEmail.save();
-      } catch (err: any) {
+      } catch (err: unknown) {
         // Gestion du cas où deux requêtes arrivent en même temps
-        if (err.code === 11000) {
+        if (typeof err === "object" && err !== null && "code" in err && (err as any).code === 11000) {
           return res
             .status(409)
             .json({ message: "Cet email est déjà abonné." });

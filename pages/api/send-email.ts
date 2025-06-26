@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
-    const { to, subject, html } = req.body;
+    
 
     try {
       await transporter.sendMail({

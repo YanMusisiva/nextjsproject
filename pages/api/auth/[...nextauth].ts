@@ -18,14 +18,14 @@ export default NextAuth({
         },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         await dbConnect();
         // Vérifie que l'email correspond à l'utilisateur autorisé
         if (credentials?.email !== allowedEmail) {
           return null;
         }
         const user = (await User.findOne({ email: credentials?.email })) as {
-          _id: any;
+          _id: unknown;
           name: string;
           email: string;
           password: string;
@@ -34,7 +34,7 @@ export default NextAuth({
         if (user && credentials?.password) {
           if (credentials.password === user.password) {
             return {
-              id: user._id.toString(),
+              id: (user._id as string | number | { toString(): string }).toString(),
               name: user.name,
               email: user.email,
             };
@@ -60,7 +60,7 @@ export default NextAuth({
     },
     async session({ session, token }) {
       if (token) {
-        (session.user as any).id = token.id as string;
+        (session.user as { id?: string; name?: string | null; email?: string | null }).id = token.id as string;
       }
       return session;
     },
