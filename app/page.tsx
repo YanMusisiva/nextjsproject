@@ -97,9 +97,12 @@ const Services = () => (
             <Image
            
   fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={90}
+              
               src={service.icon}
               alt={service.title}
-              className="object-cover w-full h-full group-hover:scale-105 transition"
+              className="object-cover w-full h-56 group-hover:scale-105 transition"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent" />
@@ -151,7 +154,9 @@ const Portfolio = () => (
           <div key={i} className="relative group rounded-2xl overflow-hidden shadow-lg">
             <Image
             width={400}
-            height={300}
+            height={500}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={90}
             
               src={`/${src}`}
               alt={`Projet ${i + 1}`}
