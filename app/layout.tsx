@@ -2,7 +2,7 @@
 
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
-
+import { Head } from "next/document";
 
 
 export default function RootLayout({
@@ -12,7 +12,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      
+      <Head>
+        <title>AS ELEKTRIKA & TEK</title>
+        <meta name="description" content="AS ELEKTRIKA & TEK - Votre source d'actualités et de ressources sur l'électronique et la technologie." />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#2563eb" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1692698862563740"
+     crossOrigin="anonymous"></script>
+      </Head>
       <body>
         {/* className={`${geistSans.variable} ${geistMono.variable} antialiased`} */}
         <SessionProvider>{children}</SessionProvider>
